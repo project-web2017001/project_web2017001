@@ -1,0 +1,165 @@
+
+#bg_search{
+	margin-top: 0;
+	width: 101%;
+	height: 600px;
+	position: relative;
+	bottom:20px;
+	background:url('images/blurred_vision-wallpaper-1920x1080.jpg');
+	background-attachment: fixed;
+	//border:1px solid red;
+}
+
+.headings{
+	color:white;
+	font-weight: bold;
+	margin-left: 35%;
+	position: relative;
+	right: 195px;	
+}
+.headings>h2{
+	position: relative;
+	font-size: 400%;
+}
+
+#searchbox_field{
+	//border:1px solid red;
+	position: relative;
+	top:30%;
+	left:84px;
+}
+
+#searchbox{
+	width: 70%;
+	float:left;	
+	height:60px;
+	padding: 5px 5px 5px 5px;
+	font-size: 160%;
+	background: white;
+	border:none;
+	//border:4px solid #BEC4C3;
+	border-radius: 10px;
+	padding-left: 55px;
+	color:black;
+}
+
+
+input#searchbox::-webkit-input-placeholder {
+   color: grey;
+}
+#searchbox_field .icon{
+  	color: grey;
+    position: relative;
+    right: 671px;
+    top: 10px;
+    font-size: 190%;
+}
+
+input#searchbox:focus{
+	outline:none;
+	
+}
+
+
+#search_button{
+	position: relative;
+    top: -53px;
+    left: 18px;
+    height: 59px;
+    width: 100px;
+    border-radius: 15px;
+}
+.job_filter{
+	border-right-width: 2px;
+	border-right-style:groove;
+}
+.featured_jobs{
+	
+	position: relative;
+    top: -25px;
+	width: 100%;
+	height: 800px;
+}
+
+.featured_jobs>h1{
+	margin-left:45%;
+	font-size: 400%;
+}
+
+.job_thumbnail{
+	background: transparent;
+	min-height: 600px;
+}
+
+.job_thumbnail:hover{
+	cursor:pointer;
+}
+
+#view_all_btn{
+	margin-left: 42%;
+}
+
+.caption{
+	margin-left: 26%;
+}
+
+.footer{
+	height: 400px;
+	width: 99%;
+	background-color: black;
+	color:white;
+	bottom:0;
+}
+
+.footer>h1{
+	margin-left:35%;
+	color: grey;
+	font-size: 400%;
+}
+
+.job_cat li{
+	list-style-type: none;
+}
+.job_cat a{
+	text-decoration: none;
+	color:white;
+}
+.job_cat a:hover{
+	text-decoration: underline;
+}
+.job_cat span{
+	color:grey;
+}
+.social-icon{
+	//border:1px solid red;
+	list-style-type: none;
+	float:left;
+	position: relative;
+	bottom:-176px;
+	text-decoration: none;
+}
+.social-icon li{
+	float:left;
+	font-size: 200%;
+	margin-left: 40px;
+}
+.social-icon li a{
+	color:white;
+}
+.social-icon li a:hover{
+	color:red;
+}
+
+.user-photo{
+	width:100px;
+	height: 100px;
+	border:1px solid grey;
+	margin-left: 0px;
+	display: inline-block;
+}
+
+.resume-upload-form{
+	margin-left: 0px;
+}
+
+]
