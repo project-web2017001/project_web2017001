@@ -92,6 +92,7 @@ $(document).ready(function(){
 			success: function(data){
 				console.log(data);
 				$("#err_msg").html(data);
+				$('#registration').trigger('reset');
 				//$('#modalF').modal('hide');
 			}
 		})
@@ -156,4 +157,5 @@ $(document).ready(function(){
 	})
 
 
+	
 })

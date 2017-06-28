@@ -162,4 +162,20 @@ input#searchbox:focus{
 	margin-left: 0px;
 }
 
-]
+.hover-div{
+	text-decoration: underline;
+}
+
+.hover-div:hover{
+	color:#43A1DC;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.fa-pencil:hover{
+	color:#43A1DC;
+}
+
+.fileuploader{
+	 
+}
