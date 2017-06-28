@@ -2,6 +2,7 @@
 session_start();
 include('dbconnect.php');
 $id=$_GET['jid'];
+$user_id=$_SESSION['uid'];
 if(!(isset($_SESSION['uid']))){
 		echo "<script>alert('Log in first!');</script>";
 		echo "<script>setTimeout(\"location.href='details.php?jid=$id'\",0.0001);</script>";
@@ -15,6 +16,11 @@ else{
 	$company=$row['company_name'];
 	$location=$row['location'];
 	$_SESSION['jobname']=$title;
+
+	$sql2="SELECT * FROM user_info WHERE user_id='$user_id'";
+	$run_query2=mysqli_query($conn, $sql2);
+	$row2=mysqli_fetch_array($run_query2);
+	$profile_photo=$row2['profile_photo'];
 }
  ?>
  <!DOCTYPE html>
@@ -59,7 +65,9 @@ else{
 			    <h4 class="text-success">You are applying for <b><?php echo $title; ?></b> at <u><?php echo $company ?></u></h4>
 			    <h5>Location: <span><?php echo $location; ?></span></h5><hr>
 			    <h4 class="text-info" style="margin-left: 0px;">Please upload your resume to continue application</h4>
-			    <div class="user-photo"></div><br><br>
+			    <div class="user-photo">
+			    	<img src="<?php echo $profile_photo; ?>" alt="" width="100%" height="100%">
+			    </div><br><br>
 			    <div class="resume-upload-form">
 			    	<form method="post" action="upload.php" enctype="multipart/form-data">
 			    	<label for="resume">Upload your Resume</label>

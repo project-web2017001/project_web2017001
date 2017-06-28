@@ -29,6 +29,7 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Are you hiring?</a></li>
 						<li><a href="#" class="modalForm">Sign in</a></li>
 						<li><a href="#" class="modalForm">Sign Up</a></li>
 					</ul>
@@ -48,7 +49,7 @@
 			</div>
 				<div class="form-group">
 					<span class="icon"><i class="fa fa-search"></i></span>
-					<input type="text" placeholder="Skills/Companies" id="searchbox">
+					<input type="text" name="typeahead" class="typeahead" placeholder="Skills/Companies" id="searchbox" data-provide="typeahead">
 					
 				</div>
 				<button class="btn btn-primary btn-lg" id="search_button"><i class="fa fa-search"></i></button>
@@ -236,6 +237,7 @@
 	<!-- Script files to be included -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.js"></script>
 	<script src="assets/main.js"></script>
 	</body>
 </html>
