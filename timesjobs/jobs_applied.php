@@ -10,6 +10,7 @@
 
 	$sql="SELECT * FROM job_applications WHERE email='$uemail' ORDER BY applied_on";
 	$run_query=mysqli_query($conn,$sql);
+	$num_applications=mysqli_num_rows($run_query);
 
 
  ?>
@@ -21,6 +22,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="http://hayageek.github.io/jQuery-Upload-File/4.0.10/uploadfile.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/style.css">
 		<link rel="stylesheet" type="text/css" href="assets/results_style.css">
 	</head>
@@ -88,7 +90,16 @@
 			</div>
 		 -->
 		<div class="col-md-8">
+		<div class="well text-center text-info" id="num_app"><?php echo $num_applications." found." ?></div>
 		<?php 
+			if($num_applications==0){
+				echo '
+					<div class="well">
+						<h2>Darn! Go Apply, bud!</h2>
+					</div>
+				';
+			}
+			else
 			while($row=mysqli_fetch_array($run_query)){
 				$jid=$row['id'];
 				$applicant_name=$row['applicant_name'];
@@ -118,7 +129,7 @@
 				}
 				else{
 					echo '
-						<div class="well">
+						<div class="well cancel-well">
 							<div class="row">
 								
 							<div class="col-md-6">
@@ -130,7 +141,7 @@
 								<h6 class="text-info">Status: <b class="text-success">'.$status.'</b></h6>
 								<h6>Applied on : '.$applied_on.'</h6>
 								<h6>Reference Number:<b class="text-warning">'.$ref_num.'</b></h6>
-								<button class="btn btn-danger">Cancel</button>
+								<button class="btn btn-danger cancel_job_btn" id='.$ref_num.'>Cancel</button>
 							</div>
 							</div>
 						</div>
@@ -151,5 +162,29 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="assets/profile_edit.js"></script>
 	<script src="assets/main.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.cancel_job_btn').click(function(){
+				var cancel_msg="<div class='alert alert-info' style='display:none;'>Application Cancelled</div>";
+				$(this).parent().parent().parent().addClass('animated fadeOutRight').one('webkitAnimationEnd',function(){
+					$(cancel_msg).prependTo($(this).parent()).fadeIn('slow');
+					 window.setTimeout(function(){
+					 	$('.alert').addClass('animated zoomOut').fadeOut('slow');
+					 },2000);
+					 $(this).hide('slow');
+				});
+			var ref_num=$(this).attr('id');
+			$.ajax({
+				url: "cancel_job.php",
+				method: "POST",
+				data: {cancel_job:1, ref_num:ref_num},
+				success: function(data){
+					$('#num_app').html(data+" found");
+				}
+			})
+			
+			})
+		})
+	</script>
 	</body>
 </html>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2017 at 09:16 PM
+-- Generation Time: Jun 29, 2017 at 10:10 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 7.0.9
 
@@ -118,8 +118,19 @@ CREATE TABLE `job_applications` (
   `resume` varchar(50) NOT NULL,
   `applicant_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `username` varchar(50) NOT NULL
+  `username` varchar(50) NOT NULL,
+  `status` varchar(50) NOT NULL DEFAULT 'PENDING'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `job_applications`
+--
+
+INSERT INTO `job_applications` (`id`, `job_title`, `company_name`, `ref_num`, `applied_on`, `resume`, `applicant_name`, `email`, `username`, `status`) VALUES
+(1, 'Full-Stack Developer', 'Facebook', 8509, '2017-06-28 11:24:56', 'uploads/raviprakash_Full-Stack Developer_Notice.pd', 'ravi prakash', 'ravi@gmail.com', 'raviprakash', 'SUCCESS'),
+(2, 'Full-Stack Developer', 'Facebook', 11231, '2017-06-28 11:24:56', 'uploads/stym06_Full-Stack Developer_Resume.pdf', 'Satyam Raj', 'satyammast@gmail.com', 'stym06', 'SUCCESS'),
+(6, 'Systems Engineer', 'Dell', 26092, '2017-06-28 11:50:30', 'uploads/shubham_Systems Engineer_Resume_2.pdf', 'Shubham Raj', 'shubham@gmail.com', 'shubham', 'PENDING'),
+(7, 'Manufacturing Officer', 'Tata Steel', 28522, '2017-06-28 16:32:43', 'uploads/stym06_Manufacturing Officer_Resume.pdf', 'Satyam Raj', 'satyammast@gmail.com', 'stym06', 'SUCCESS');
 
 -- --------------------------------------------------------
 
@@ -132,6 +143,7 @@ CREATE TABLE `user_info` (
   `username` varchar(50) NOT NULL,
   `email` varchar(250) NOT NULL,
   `password` varchar(50) NOT NULL,
+  `profile_photo` varchar(255) NOT NULL,
   `name` varchar(50) NOT NULL,
   `mobile` varchar(10) NOT NULL,
   `location` varchar(50) NOT NULL,
@@ -147,13 +159,10 @@ CREATE TABLE `user_info` (
 -- Dumping data for table `user_info`
 --
 
-INSERT INTO `user_info` (`user_id`, `username`, `email`, `password`, `name`, `mobile`, `location`, `skills`, `age`, `address`, `experience`, `qualification`, `preferences`) VALUES
-(1, 'stym06', 'satyammast@gmail.com', '3814d460c26c2dbab2d80294d2cc9882', 'Satyam Raj', '8235639917', 'Ranchi', 'HTML, CSS, JavaScript, Bootstrap, PHP', 20, 'Hostel D, NIT Jamshedpur, Jharkhand', '0', 'B.Tech', 'IT, Engineering'),
-(2, 'shbmrj', 'shubhamraj50@gmail.com', '5568fda880263b9be0b72104354fa3dc', 'Shubham Raj', '9916059341', 'Bangalore', 'Java, C++, Python', 22, 'KS Layout, Bangalore', '1', 'BE', 'IT, Telecom'),
-(3, 'prnv', 'pranavprem6@gmail.com', '9e1135ff4157f14358c7c94c79aad47d', 'Pranav Prem', '7903292834', 'ranchi', 'Ansys, AutoCad', 15, 'Block Road, Ratu, Ranchi', '0', 'Xth', 'Engineering'),
-(6, 'kislay123', 'kislay@gmail.com', 'eac9073b431b28ce77fb02d0ac4b0295', 'Kislay Crosby', '9917956876', 'Bangalore', '', 0, '', '', '', ''),
-(7, 'rishvrrj', 'rishav@hotmail.com', 'b4a7927a2c39e8e653247e129314420e', 'Rishav Raj', '8239576687', 'Jamshedpur', '', 0, '', '', '', ''),
-(9, 'user', 'user@test.com', '81dc9bdb52d04dc20036dbd8313ed055', 'user', '9900990099', 'somewhere on earth', 'many skilss', 21, 'bngalore', '0', 'Btech', 'angular php');
+INSERT INTO `user_info` (`user_id`, `username`, `email`, `password`, `profile_photo`, `name`, `mobile`, `location`, `skills`, `age`, `address`, `experience`, `qualification`, `preferences`) VALUES
+(1, 'stym06', 'satyammast@gmail.com', '3814d460c26c2dbab2d80294d2cc9882', 'uploads/user/stym06_kislay123_IMG_20150506_183325.jpg', 'Satyam Raj', '8235639917', 'Ranchi', 'HTML, CSS, JavaScript, Bootstrap, PHP', 28, 'Hostel D, NIT Jamshedpur, Jharkhand', '1', 'B.Tech', 'IT,  Engineering'),
+(6, 'kislay123', 'kislay@gmail.com', 'eac9073b431b28ce77fb02d0ac4b0295', 'uploads/user/kislay123_IMG_20150506_183325.jpg', 'Kislay Crosby', '9917956876', 'Bangalore', 'Sales, Marketing Strategies', 20, 'KS Layout, Bangalore', '0', 'XIIth', 'Field Work'),
+(14, 'shubham', 'shubham@gmail.com', '3b6beb51e76816e632a40d440eab0097', 'uploads/user/shubham_Raj.jpg', 'Shubham Raj', '9916059341', 'Bangalore', 'Java, Python', 22, 'KS Layout, Bangalore', '1', 'B.E', 'IT, Telecom');
 
 --
 -- Indexes for dumped tables
@@ -212,12 +221,12 @@ ALTER TABLE `job`
 -- AUTO_INCREMENT for table `job_applications`
 --
 ALTER TABLE `job_applications`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `user_info`
 --
 ALTER TABLE `user_info`
-  MODIFY `user_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
