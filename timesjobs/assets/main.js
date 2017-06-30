@@ -157,5 +157,37 @@ $(document).ready(function(){
 	})
 
 
+
+	//For sidebar-industry filter
+	$('body').delegate('.category_sidebar','click',function(e){
+		e.preventDefault();
+		var id=$(this).attr('id');
+		$.ajax({
+			beforeSend:function() { 
+         $("<img src='http://miniontours.yzi.me/loading.gif'  style='position:relative;top:200px;left:200px;z-index:2000' id='loading-excel' />").appendTo("body");
+     },
+			url: "action.php",
+			method: "POST",
+			data: {category_feed:1,id:id},
+			success: function(data){
+				$('#feed_jobs').html(data);
+			}
+		})
+	})
+
+	//For sidebar-industry filter
+	$('body').delegate('.category_sidebar2','click',function(e){
+		e.preventDefault();
+		var id=$(this).attr('id');
+		console.log(id);
+		$.ajax({
+			url: "action.php",
+			method: "POST",
+			data: {category_feed2:1,id:id},
+			success: function(data){
+				$('#feed_jobs').html(data);
+			}
+		})
+	})
 	
 })

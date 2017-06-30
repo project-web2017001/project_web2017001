@@ -13,8 +13,9 @@
 		if($numrows){
 			while($row=mysqli_fetch_array($run_query)){
 				$name=$row['industry_name'];
+				$id=$row['id'];
 				echo "
-					<li><a href='#'>$name</a></li>
+					<li><a href='#' id=".$id." class='category_sidebar'>$name</a></li>
 				";
 			}
 			echo '</div>';
@@ -33,9 +34,7 @@
 		if($numrows){
 			while($row=mysqli_fetch_array($run_query)){
 				$name=$row['company_name'];
-				echo "
-					<li><a href='#'>$name</a></li>
-				";
+				echo "<li><a href='#' id='".$name."' class='category_sidebar2'>$name</a></li>";
 			}
 			echo '</div>';
 		}
@@ -86,6 +85,90 @@
 	}
 
 
-	//FOR DETAILS OF A PARTICULAR JOB (DETAILS.PHP)
+	//FOR CATEGORISE FILTER -- INDUSTRY 
+	if(isset($_POST['category_feed'])){
+		$id=$_POST['id'];
+		$sql="SELECT * FROM job WHERE industry='$id'";
+		$run_query=mysqli_query($conn,$sql);
+		$numrows=mysqli_num_rows($run_query);
+		if($numrows){
+			while($row=mysqli_fetch_array($run_query)){
+
+				$id=$row['job_id'];
+				$title=$row['job_title'];
+				$company=$row['company_name'];
+				$exp=$row['experience'];
+				$salary=$row['salary'];
+				$location=$row['location'];
+				$skills=$row['skills'];
+				$descr=$row['descr'];
+
+				$sql2="SELECT * FROM company WHERE company_name='$company'";
+				$run_query2=mysqli_query($conn,$sql2);
+				$rowz=mysqli_fetch_array($run_query2);
+				$logo=$rowz['logo'];
+
+				echo "
+					<div class='col-sm-6 col-md-4 job_thumbnail'>
+				    <div class='thumbnail job_thumbnail'>
+				      <img src='$logo' width='200px' height='200px'>
+				      <div class='caption'>
+				        <h3>$title</h3>
+				        <div class='text-muted' style='display: inline-block;'>$company</div>
+				        <br><br><i class='fa fa-briefcase'></i>
+				        <span class='exp'>$exp</span><br>
+				        <span class='location'>Location: $location</span>
+				        <p>$descr</p>
+				        <p><a href='#' class='btn btn-primary detail' jid='$id' role='button'>View Job</a> </p>
+				      </div>
+				    </div>
+				  </div>
+				";
+			}
+		}
+	}
+
+	//FOR CATEGORISE FILTER -- COMPANY 
+	if(isset($_POST['category_feed2'])){
+		$id=$_POST['id'];
+		$sql="SELECT * FROM job WHERE company_name='$id'";
+		$run_query=mysqli_query($conn,$sql);
+		$numrows=mysqli_num_rows($run_query);
+		if($numrows){
+			while($row=mysqli_fetch_array($run_query)){
+
+				$id=$row['job_id'];
+				$title=$row['job_title'];
+				$company=$row['company_name'];
+				$exp=$row['experience'];
+				$salary=$row['salary'];
+				$location=$row['location'];
+				$skills=$row['skills'];
+				$descr=$row['descr'];
+
+				$sql2="SELECT * FROM company WHERE company_name='$company'";
+				$run_query2=mysqli_query($conn,$sql2);
+				$rowz=mysqli_fetch_array($run_query2);
+				$logo=$rowz['logo'];
+
+				echo "
+					<div class='col-sm-6 col-md-4 job_thumbnail'>
+				    <div class='thumbnail job_thumbnail'>
+				      <img src='$logo' width='200px' height='200px'>
+				      <div class='caption'>
+				        <h3>$title</h3>
+				        <div class='text-muted' style='display: inline-block;'>$company</div>
+				        <br><br><i class='fa fa-briefcase'></i>
+				        <span class='exp'>$exp</span><br>
+				        <span class='location'>Location: $location</span>
+				        <p>$descr</p>
+				        <p><a href='#' class='btn btn-primary detail' jid='$id' role='button'>View Job</a> </p>
+				      </div>
+				    </div>
+				  </div>
+				";
+			}
+		}
+	}
 
  ?>
