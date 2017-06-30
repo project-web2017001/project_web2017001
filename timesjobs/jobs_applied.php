@@ -90,12 +90,12 @@
 			</div>
 		 -->
 		<div class="col-md-8">
-		<div class="well text-center text-info" id="num_app"><?php echo $num_applications." found." ?></div>
+		<div class="well text-center text-info" id="num_app"><?php echo $num_applications." result(s) found" ?></div>
 		<?php 
 			if($num_applications==0){
 				echo '
 					<div class="well">
-						<h2>Darn! Go Apply, bud!</h2>
+						<h2 class="text-center text-warning no_jobs">Darn! Go Apply, bud!</h2>
 					</div>
 				';
 			}
@@ -184,6 +184,8 @@
 			})
 			
 			})
+
+			$('.no_jobs').addClass('animated bounce')
 		})
 	</script>
 	</body>
