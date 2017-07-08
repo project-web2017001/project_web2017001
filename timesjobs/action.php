@@ -126,6 +126,10 @@
 				";
 			}
 		}
+		else
+		{
+			echo "<img src='assets/images/Nothing_Face-512.png' width='100px' height='100px' style='margin-left:50%; margin-top:20%;'><br><span style='margin-left:49%; color:black;'>Weird. No jobs found!</span>";
+		}
 	}
 
 	//FOR CATEGORISE FILTER -- COMPANY 
@@ -169,6 +173,22 @@
 				";
 			}
 		}
+		else
+		{
+			echo "<img src='https://cdn2.iconfinder.com/data/icons/smiling-face/512/Nothing_Face-512.png' width='100px' height='100px' style='margin-left:50%; margin-top:20%;'><br><span style='margin-left:49%; color:black;'>Weird. No jobs found!</span>";
+		}
+	}
+
+	//For admin-panel
+	if(isset($_POST['admin_login'])){
+		session_start();
+		$email=$_POST['email'];
+		$pwd=$_POST['password'];
+		$_SESSION['admin']=$email;
+		if($email=='admin' && $password=='1234'){
+			header('location:manage.php');
+		}
+		header('location:admin.php');
 	}
 
  ?>

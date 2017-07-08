@@ -12,6 +12,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/style.css">
 	</head>
 	<body>
@@ -29,6 +30,7 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
+						<li><a href="admin.php">Admin Login</a></li>
 						<li><a href="#">Are you hiring?</a></li>
 						<li><a href="#" class="modalForm">Sign in</a></li>
 						<li><a href="#" class="modalForm">Sign Up</a></li>

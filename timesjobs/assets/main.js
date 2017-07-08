@@ -163,14 +163,17 @@ $(document).ready(function(){
 		e.preventDefault();
 		var id=$(this).attr('id');
 		$.ajax({
-			beforeSend:function() { 
-         $("<img src='http://miniontours.yzi.me/loading.gif'  style='position:relative;top:200px;left:200px;z-index:2000' id='loading-excel' />").appendTo("body");
-     },
+			beforeSend: function(){
+			     $('#feed_jobs').html('<img src="assets/images/spinner-transparent.gif" width="100px" height="100px" style="margin-left:50%; margin-top:20%;">');
+			   },
 			url: "action.php",
 			method: "POST",
 			data: {category_feed:1,id:id},
 			success: function(data){
-				$('#feed_jobs').html(data);
+				function display(){
+					$('#feed_jobs').html(data).hide().fadeIn('slow');
+				}
+				setTimeout(display,1000);
 			}
 		})
 	})
@@ -181,11 +184,18 @@ $(document).ready(function(){
 		var id=$(this).attr('id');
 		console.log(id);
 		$.ajax({
+			beforeSend: function(){
+			     $('#feed_jobs').html('<img src="assets/images/spinner-transparent.gif" width="100px" height="100px" style="margin-left:50%; margin-top:20%;">');
+			   },
 			url: "action.php",
 			method: "POST",
 			data: {category_feed2:1,id:id},
 			success: function(data){
-				$('#feed_jobs').html(data);
+				
+				function display(){
+					$('#feed_jobs').html(data).hide().fadeIn('slow');
+				}
+				setTimeout(display,1000);
 			}
 		})
 	})
