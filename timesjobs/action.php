@@ -80,7 +80,7 @@
 				  </div>
 				";
 			}
-			echo '<button class="btn btn-lg btn-success" id="view_all_btn">View all Jobs</button>';
+			echo '';
 		}
 	}
 

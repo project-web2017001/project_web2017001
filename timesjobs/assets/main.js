@@ -199,5 +199,10 @@ $(document).ready(function(){
 			}
 		})
 	})
+
+	//View All button in index.php and home.php
+	$('body').delegate('#view_all_btn','click',function(){
+		window.location.replace('results.php?q=');
+	});
 	
 })

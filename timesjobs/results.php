@@ -67,7 +67,7 @@
 
 			<div class="col-md-2 filter">
 				<!-- Job filters -->
-				<div id="get_cat"></div>
+				
 				<!-- <div class="nav nav-pills nav-stacked">
 					<li class="active"><a href="#"><h4>Categories</h4></a></li>
 					<li><a href="#">Categories</a></li>
@@ -76,7 +76,7 @@
 					<li><a href="#">Categories</a></li>
 				</div> -->
 				<br><br><br>
-				<div id="get_comp"></div>
+				
 				<!-- <div class="nav nav-pills nav-stacked">
 					<li class="active"><a href="#"><h4>Companies</h4></a></li>
 					<li><a href="#">Categories</a></li>

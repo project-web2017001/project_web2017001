@@ -87,7 +87,7 @@
 			</div>			
 			<!-- Job Thumbnails -->
 			<div class="col-md-10 feed" id="feed_jobs">
-
+			
 				<!--
 
 				  <div class="col-sm-6 col-md-4 job_thumbnail">
@@ -110,44 +110,49 @@
 			</div>
 		</div>
 
-		<div class="footer">
-			<h1>Hiring Companies</h1>
-			<div class="row">
-				<div class="col-md-4 text-center job_cat">
-					<!-- Jobs By Industry -->
-					<li><span><b>Jobs By Industry</b></span></li>
-					<li><a href="#">IT</a></li>
-					<li><a href="#">Engineering</a></li>
-					<li><a href="#">Banking</a></li>
-					<li><a href="#">Medical</a></li>
-
-				</div>
-				<div class="col-md-4 text-center job_cat">
-					<!-- Jobs By Location -->
-					<li><span><b>Jobs By Location</b></span></li>
-					<li><a href="#">Delhi</a></li>
-					<li><a href="#">Mumbai</a></li>
-					<li><a href="#">Bangalore</a></li>
-					<li><a href="#">Kolkata</a></li>
-				</div>
-				<div class="col-md-4 text-center job_cat">
-					<!-- Jobs By Skills -->
-					<li><span><b>Jobs By Skills</b></span></li>
-					<li><a href="#">Web Development</a></li>
-					<li><a href="#">Java</a></li>
-					<li><a href="#">ASP.NET</a></li>
-					<li><a href="#">SAP Jobs</a></li>		
-				</div>
+		
+			<div class="row footer">
+					
+			<button class="btn btn-lg btn-success" id="view_all_btn" style="position: relative; left:150px;">View all Jobs</button>
+					<hr><br><br>
+					<div class="row">
+						<div class="col-md-4 text-center job_cat">
+							<!-- Jobs By Industry -->
+							<li><span><b>Jobs By Industry</b></span></li>
+							<li><a href="#">IT</a></li>
+							<li><a href="#">Engineering</a></li>
+							<li><a href="#">Banking</a></li>
+							<li><a href="#">Medical</a></li>
+				
+						</div>
+						<div class="col-md-4 text-center job_cat">
+							<!-- Jobs By Location -->
+							<li><span><b>Jobs By Location</b></span></li>
+							<li><a href="#">Delhi</a></li>
+							<li><a href="#">Mumbai</a></li>
+							<li><a href="#">Bangalore</a></li>
+							<li><a href="#">Kolkata</a></li>
+						</div>
+						<div class="col-md-4 text-center job_cat">
+							<!-- Jobs By Skills -->
+							<li><span><b>Jobs By Skills</b></span></li>
+							<li><a href="#">Web Development</a></li>
+							<li><a href="#">Java</a></li>
+							<li><a href="#">ASP.NET</a></li>
+							<li><a href="#">SAP Jobs</a></li>		
+						</div>
+					</div>
+				
+					<ul class="social-icon">
+						<li><span>Follow us on</span></li>
+				         		<li><a href="https://www.facebook.com/satyam.mast" target="_blank" class="facebook"><i class="fa fa-facebook"></i>
+				         		</a></li>
+				         		<li><a href="https://twitter.com/satyamraj121" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li>
+				         	</ul>
+				
+			
 			</div>
-
-			<ul class="social-icon">
-				<li><span>Follow us on</span></li>
-         		<li><a href="https://www.facebook.com/satyam.mast" target="_blank" class="facebook"><i class="fa fa-facebook"></i>
-         		</a></li>
-         		<li><a href="https://twitter.com/satyamraj121" target="_blank" class="twitter"><i class="fa fa-twitter"></i></a></li>
-         	</ul>
-
-		</div>
+		
 		
 		<!-- Modal form -->
 		<div class="modal fade" id="modalF" tabindex="-1" role="dialog">
