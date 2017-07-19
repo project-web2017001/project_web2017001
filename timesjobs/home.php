@@ -111,8 +111,8 @@
 		</div>
 
 		<div class="footer">
-			<h1>Hiring Companies</h1>
-			<div class="row">
+			<button class="btn btn-lg btn-success" id="view_all_btn" style="position: relative; left:150px;">View all Jobs</button>
+					<hr><br><br>
 				<div class="col-md-4 text-center job_cat">
 					<!-- Jobs By Industry -->
 					<li><span><b>Jobs By Industry</b></span></li>
@@ -138,7 +138,7 @@
 					<li><a href="#">ASP.NET</a></li>
 					<li><a href="#">SAP Jobs</a></li>		
 				</div>
-			</div>
+			
 
 			<ul class="social-icon">
 				<li><span>Follow us on</span></li>
