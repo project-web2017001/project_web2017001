@@ -18,6 +18,11 @@
 	$num_apps=mysqli_num_rows($run_query3);
 	$row3=mysqli_fetch_array($run_query3);
 
+	//Industry Query
+	$sql4="SELECT * FROM industry";
+	$run_query4=mysqli_query($conn,$sql4);
+	$num_industries=mysqli_num_rows($run_query4);
+
 	if(isset($_POST['job'])){
 		//Job sidebar ON
 		
@@ -59,7 +64,7 @@
 				<td>'.$jtitle.'</td>
 				<td>'.$jcompany.'</td>
 				<td>'.$jposted.'</td>
-				<td><button class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button></td>
+				<td><button class="btn btn-xs btn-danger delete_job_posted" id='.$jid.'><i class="fa fa-trash"></i></button></td>
 			</tr>
 		';
 	}
@@ -227,7 +232,7 @@
 				<td>'.$aposted.'</td>
 				<td>'.$aname.'</td>
 				<td>'.$astatus.'</td>
-				<td><button class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button></td>
+				<td><button class="btn btn-xs btn-danger remove_job" id='.$aid.'><i class="fa fa-trash"></i></button></td>
 			</tr>
 		';
 	}
@@ -270,7 +275,6 @@
 								<th class="text-center text-success"><h4>Phone</h4></th>
 								<th class="text-center text-success"><h4>Location</h4></th>
 								<th class="text-center text-success"><h4>Jobs Posted</h4></th>
-								<th class="text-center text-success"><h4>Edit</h4></th>
 								<th class="text-center text-success"><h4>Remove</h4></th>
 						    </thead>
 						    <tbody>';
@@ -293,8 +297,8 @@
 				<td>'.$ephone.'</td>
 				<td>'.$elocation.'</td>
 				<td>'.$eposted.'</td>
-				<td><button class="btn btn-xs btn-warning"><i class="fa fa-pencil"></i></button></td>
-				<td><button class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></button></td>
+				
+				<td><button class="btn btn-xs btn-danger remove_employer" id='.$eid.'><i class="fa fa-trash"></i></button></td>
 			</tr>
 		';
 	}
@@ -310,32 +314,100 @@
 				      <div class="row">
 				      <div class="col-md-1"></div>
 				        <div class="col-md-6">
-						<form id="admin_job_add" action="">
+				        <form method="post" action="admin_employer_add.php" id="admin_employer_add" enctype="multipart/form-data">
 							<div id="err_msg"></div>
-							<div class="form-group">
-								<input type="text" name="name" class="register_field form-control" placeholder="Company Name">
+							<div class="row">
+							<div class="col-md-4">Company Name:</div>
+								<div class="col-md-8">
+									<div class="form-group">
+									<input type="text" name="company_name" class="employer_field form-control" placeholder="Company Name">
+									</div>
+								</div>
 							</div>
-							<div class="form-group">
-								<input type="text" name="username" class="register_field form-control" placeholder="Email">
+
+							<div class="row">
+							<div class="col-md-4">Email:</div>
+								<div class="col-md-8">
+									<div class="form-group">
+									<input type="text" name="company_email" class="employer_field form-control" placeholder="Email">
+									</div>
+								</div>
 							</div>
-							<div class="form-group">
-								<input type="text" name="username" class="register_field form-control" placeholder="Phone">
-							</div>
-							<div class="form-group">
-								<input type="text" name="username" class="register_field form-control" placeholder="Website">
-							</div>
-							<div class="form-group">
-								<input type="text" name="username" class="register_field form-control" placeholder="Location">
-							</div>
-							<div class="form-group">
-								<input type="text" name="phone" class="register_field form-control" placeholder="Ratings">
-							</div>
-							<div class="form-group">
-								<input type="text" name="location" class="register_field form-control" placeholder="Number of Employees">
+
+							<div class="row">
+							<div class="col-md-4">Industry:</div>
+								<div class="col-md-8">
+									<div class="form-group">
+									<select class="form-control employer_field" name="industry_name">';
+
+						while($row4=mysqli_fetch_array($run_query4)){
+					$industry_name=$row4['industry_name'];
+					echo '
+						<option>'.$industry_name.'</option>
+					';
+				}
+
+							echo '</select>
+									</div>
+								</div>
 							</div>
 							
+
+							<div class="row">
+							<div class="col-md-4">Logo:</div>
+								<div class="col-md-8">
+									<input type="file" name="company_logo" class="employer_field">
+								</div>
+							</div><br>
+
+							<div class="row">
+							<div class="col-md-4">Phone:</div>
+								<div class="col-md-8">
+									<div class="form-group">
+									<input type="text" name="company_phone" class="employer_field form-control" placeholder="Phone">
+									</div>
+								</div>
+							</div>
+	
+							<div class="row">
+							<div class="col-md-4">Website:</div>
+								<div class="col-md-8">
+									<div class="form-group">
+									<input type="text" name="company_website" class="employer_field form-control" placeholder="Website">
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+							<div class="col-md-4">Location:</div>
+								<div class="col-md-8">
+									<div class="form-group">
+									<input type="text" name="company_location" class="employer_field form-control" placeholder="Location">
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+							<div class="col-md-4">Ratings (Out of 5):</div>
+								<div class="col-md-8">
+									<div class="form-group">
+									<input type="text" name="company_rating" class="employer_field form-control" placeholder="Ratings">
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+							<div class="col-md-4">Number of Employees:</div>
+								<div class="col-md-8">
+									<div class="form-group">
+									<input type="text" name="num_employees" class="employer_field form-control" placeholder="Number of Employees">
+									</div>
+								</div>
+							</div>
+
+							
 							<br>
-							<div class="col-md-4 offset-4"><button id="register_btn" class="btn btn-success">Submit</button></div>
+							<div class="col-md-4 offset-4"><button id="employer_add_btn" class="btn btn-success">Submit</button></div>
 						</form>
 						</div> 
 						</div> 
@@ -345,5 +417,33 @@
 			</div>
 		</div>
 		'.$num_companies;
+	}
+
+
+	//Removing Job application
+	if(isset($_POST['remove_job'])){
+
+		$id=$_POST['id'];
+		$sql="DELETE FROM job_applications WHERE ref_num='$id'";
+		$run_query=mysqli_query($conn,$sql);
+
+	}
+
+	//Removing Employer
+	if(isset($_POST['remove_employer'])){
+
+		$id=$_POST['id'];
+		$sql="DELETE FROM company WHERE company_id='$id'";
+		$run_query=mysqli_query($conn,$sql);
+
+	}
+
+	//Removing posted Jobs
+	if(isset($_POST['delete_job_posted'])){
+
+		$id=$_POST['id'];
+		$sql="DELETE FROM job WHERE job_id='$id'";
+		$run_query=mysqli_query($conn,$sql);
+
 	}
  ?>

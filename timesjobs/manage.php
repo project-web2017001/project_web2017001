@@ -13,7 +13,7 @@
 	$run_query2=mysqli_query($conn,$sql2);
 	$num_companies=mysqli_num_rows($run_query2);
 
-	$sql3="SELECT * FROM job_applications";
+	$sql3="SELECT * FROM job_applications ORDER BY applied_on DESC";
 	$run_query3=mysqli_query($conn,$sql3);
 	$num_apps=mysqli_num_rows($run_query3);
 
@@ -133,62 +133,53 @@
 						<div class="col-md-6" style="border-right: 1px solid grey;">
 							<span class="text-success">Latest Applications</span>
 							<br><br><br>
-							<div class="row">
-								<div class="col-md-4 text-right">
-									<img src="http://demo.phpjabbers.com/source/jpw/admin/app/web/img/frontend/no-logo.png" width="60px" height="60px">
-								</div>
-								<div class="col-md-8 text-left">
-									Some Application
-								</div>
-							</div>
-							<br>
-							<div class="row">
-								<div class="col-md-4 text-right">
-									<img src="http://demo.phpjabbers.com/source/jpw/admin/app/web/img/frontend/no-logo.png" width="60px" height="60px">
-								</div>
-								<div class="col-md-8 text-left">
-									Some Application
-								</div>
-							</div>
-							<br>
-							<div class="row">
-								<div class="col-md-4 text-right">
-									<img src="http://demo.phpjabbers.com/source/jpw/admin/app/web/img/frontend/no-logo.png" width="60px" height="60px">
-								</div>
-								<div class="col-md-8 text-left">
-									Some Application
-								</div>
-							</div>
+							<?php 
+								while($row=mysqli_fetch_array($run_query3)){
+									$applicant_name=$row['applicant_name'];
+									$email=$row['email'];
+
+									$sqlz="SELECT * FROM user_info WHERE email='$email'";
+									$runq=mysqli_query($conn,$sqlz);
+									$user_row=mysqli_fetch_array($runq);
+									$profile_photo=$user_row['profile_photo'];
+									echo '
+										<div class="row">
+											<div class="col-md-4 text-right">
+												<img src='.$profile_photo.' width="60px" height="60px">
+											</div>
+											<div class="col-md-8 text-left">
+												'.$applicant_name.'
+											</div>
+										</div><br>
+									';
+								}
+							 ?>
+							
+						
 						</div>
 						<div class="col-md-6">
 							<span class="text-success">Latest Employers</span>
 							<br><br><br>
-							<div class="row">
-								<div class="col-md-4 text-right">
-									<img src="http://demo.phpjabbers.com/source/jpw/admin/app/web/img/frontend/no-logo.png" width="60px" height="60px">
-								</div>
-								<div class="col-md-8 text-left">
-									Some Company
-								</div>
-							</div>
-							<br>
-							<div class="row">
-								<div class="col-md-4 text-right">
-									<img src="http://demo.phpjabbers.com/source/jpw/admin/app/web/img/frontend/no-logo.png" width="60px" height="60px">
-								</div>
-								<div class="col-md-8 text-left">
-									Some Company
-								</div>
-							</div>
-							<br>
-							<div class="row">
-								<div class="col-md-4 text-right">
-									<img src="http://demo.phpjabbers.com/source/jpw/admin/app/web/img/frontend/no-logo.png" width="60px" height="60px">
-								</div>
-								<div class="col-md-8 text-left">
-									Some Company
-								</div>
-							</div>
+							<?php 
+								while($newrow=mysqli_fetch_array($run_query2)){
+									$logo=$newrow['logo'];
+									$company_name=$newrow['company_name'];
+									echo '
+											<div class="row">
+												<div class="col-md-4 text-right">
+													<img src='.$logo.' width="60px" height="60px">
+												</div>
+												<div class="col-md-8 text-left">
+													'.$company_name.'
+												</div>
+											</div>
+												<br>
+									';
+								}
+							 ?>
+							
+						
+							
 						</div>
 					</div>
 				</div>
