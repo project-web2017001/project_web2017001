@@ -16,7 +16,6 @@
 	$sql3="SELECT * FROM job_applications";
 	$run_query3=mysqli_query($conn,$sql3);
 	$num_apps=mysqli_num_rows($run_query3);
-	$row3=mysqli_fetch_array($run_query3);
 
 	//Industry Query
 	$sql4="SELECT * FROM industry";
@@ -231,7 +230,25 @@
 				<td>'.$acompany.'</td>
 				<td>'.$aposted.'</td>
 				<td>'.$aname.'</td>
-				<td>'.$astatus.'</td>
+				<td>
+					<select class="form-control" name="status" id="dropdown" app_id='.$aid.'>';
+
+				if($astatus=='PENDING'){
+					echo '
+							<option value="PENDING"> PENDING </option>
+							<option value="SUCCESS"> SUCCESS </option>
+					';
+				}
+				else{
+					echo '
+							<option value="SUCCESS"> SUCCESS </option>
+							<option value="PENDING"> PENDING </option>
+					';
+				}
+
+			echo 	'	
+					</select>
+				</td>
 				<td><button class="btn btn-xs btn-danger remove_job" id='.$aid.'><i class="fa fa-trash"></i></button></td>
 			</tr>
 		';
@@ -443,6 +460,17 @@
 
 		$id=$_POST['id'];
 		$sql="DELETE FROM job WHERE job_id='$id'";
+		$run_query=mysqli_query($conn,$sql);
+
+	}
+
+	//Change Pending/Success state in Application sidebar in manage.php
+	if(isset($_POST['change_state_application'])){
+
+		$app_id=$_POST['app_id'];
+		$val=$_POST['val'];
+
+		$sql="UPDATE job_applications SET status='$val' WHERE ref_num='$app_id'";
 		$run_query=mysqli_query($conn,$sql);
 
 	}
