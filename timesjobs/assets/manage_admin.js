@@ -137,4 +137,18 @@ $(document).ready(function(){
 			}
 		})
 	})
+
+	//Change Pending/Success state in Application sidebar in manage.php
+	$(document).on('change','#dropdown',function(e){
+		var app_id=$(this).attr('app_id');
+		var val=$(this).val();
+		$.ajax({
+			url: 'admin_panel.php',
+			method: 'POST',
+			data:{change_state_application:1,app_id:app_id,val:val},
+			success:function(data){
+				alert("Changed!");
+			}
+		})
+	})
 })
