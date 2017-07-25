@@ -28,8 +28,8 @@
 			$industry=5;
 			break;
 	} 
-
-	$sql="INSERT INTO job (job_title,company_name,experience,salary,location,skills,descr,industry,keywords) VALUES('$jobtitle','$company','$exp','$salary','$location','$skills','$descr','$industry','$keywords')";
+	$date = date("Y-m-d H:i:s");
+	$sql="INSERT INTO job (job_title,company_name,experience,salary,location,skills,descr,posted_on,industry,keywords) VALUES('$jobtitle','$company','$exp','$salary','$location','$skills','$descr','$date','$industry','$keywords')";
 	$run_query=mysqli_query($conn,$sql);
 	if($run_query){
 						echo "

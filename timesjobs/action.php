@@ -73,7 +73,7 @@
 				        <br><br><i class='fa fa-briefcase'></i>
 				        <span class='exp'>$exp</span><br>
 				        <span class='location'>Location: $location</span>
-				        <p>$descr</p>
+				        <br>
 				        <p><a href='#' class='btn btn-primary detail' jid='$id' role='button'>View Job</a> </p>
 				      </div>
 				    </div>
@@ -118,7 +118,7 @@
 				        <br><br><i class='fa fa-briefcase'></i>
 				        <span class='exp'>$exp</span><br>
 				        <span class='location'>Location: $location</span>
-				        <p>$descr</p>
+				        <br>
 				        <p><a href='#' class='btn btn-primary detail' jid='$id' role='button'>View Job</a> </p>
 				      </div>
 				    </div>
@@ -165,7 +165,7 @@
 				        <br><br><i class='fa fa-briefcase'></i>
 				        <span class='exp'>$exp</span><br>
 				        <span class='location'>Location: $location</span>
-				        <p>$descr</p>
+				      	<br>
 				        <p><a href='#' class='btn btn-primary detail' jid='$id' role='button'>View Job</a> </p>
 				      </div>
 				    </div>
