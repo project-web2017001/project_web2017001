@@ -137,6 +137,9 @@
 								while($row=mysqli_fetch_array($run_query3)){
 									$applicant_name=$row['applicant_name'];
 									$email=$row['email'];
+									$job_title=$row['job_title'];
+									$company_name=$row['company_name'];
+									$time=$row['applied_on'];
 
 									$sqlz="SELECT * FROM user_info WHERE email='$email'";
 									$runq=mysqli_query($conn,$sqlz);
@@ -150,7 +153,16 @@
 											<div class="col-md-8 text-left">
 												'.$applicant_name.'
 											</div>
-										</div><br>
+											<div class="col-md-8 text-left text-primary">
+												<span class="text-info">applied for </span>'.$job_title.'
+											</div>
+											<div class="col-md-8 text-left text-success">
+												<span class="text-info">at </span>'.$company_name.'
+											</div>
+											<div class="col-md-8 text-right text-success">
+												'.$time.'
+											</div>
+										</div><br><hr>
 									';
 								}
 							 ?>
@@ -173,7 +185,7 @@
 													'.$company_name.'
 												</div>
 											</div>
-												<br>
+												<br><hr>
 									';
 								}
 							 ?>
