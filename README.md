@@ -55,6 +55,15 @@ You can ofcourse make your own account by clicking on Sign up
 
 ### The uploaded resumes and job-applications get reflected in the database and are stored in 
     `uploads/` folder
+   
+# UPDATE (29/07/17)
+1) Removal of applications in admin panel (CHECKED)
+2) Adding of Employers/Companies (CHECKED)
+3) Edit/Remove of Employers (CHECKED)
+4) Update the Dashboard with relevant fields in the bottom (CHECKED)
+5) the alignment of the view in front end  (CHECKED)
+6)timesatmp is 0000000 every where,pls check to it (CHECKED)
+7) Stylize the footer everywhere and the href link functional (CHECKED)
     
 ## Built with Bootstrap, Core PHP, custom CSS
 
