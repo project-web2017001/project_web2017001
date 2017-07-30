@@ -29,7 +29,7 @@
 		</ol>
 			<div id="form-div">
 			<h2 class="text-warning text-center">Admin Login</h2>
-			<form action="" method="post" class="form-horizontal">
+			<form action="admin_check.php" method="post" class="form-horizontal">
 				<div class="form-group">
 					<label for="name">Email:</label>
 					<input type="text" class="form-control" id='email' name='email'>
@@ -53,16 +53,11 @@
 					var email=$('#email').val();
 					var password=$('#password').val();
 					
-					e.preventDefault();
-					if(email!='' && password!=''){
-					$.ajax({
-						url: 'action.php',
-						method: 'POST',
-						data: {admin_login:1,email:email,password:password},
-						success: function(data){
-							window.location.replace('manage.php');
-						}
-					})
+					if(email=='' || password==''){
+						e.preventDefault();
+						alert('All Fields are compulsory!');
+					}
+					
 				}
 				})
 			})
