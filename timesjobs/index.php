@@ -10,7 +10,7 @@
 	<title>Times Jobs</title>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/slate/bootstrap.min.css">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/style.css">
@@ -119,27 +119,27 @@
 						<div class="col-md-4 text-center job_cat">
 							<!-- Jobs By Industry -->
 							<li><span><b>Jobs By Industry</b></span></li>
-							<li><a href="#">IT</a></li>
-							<li><a href="#">Engineering</a></li>
-							<li><a href="#">Banking</a></li>
+							<li><a href="results.php?q=it">IT</a></li>
+							<li><a href="results.php?q=engineering">Engineering</a></li>
+							<li><a href="results.php?q=sbi">Banking</a></li>
 							<li><a href="#">Medical</a></li>
 				
 						</div>
 						<div class="col-md-4 text-center job_cat">
 							<!-- Jobs By Location -->
-							<li><span><b>Jobs By Location</b></span></li>
-							<li><a href="#">Delhi</a></li>
-							<li><a href="#">Mumbai</a></li>
-							<li><a href="#">Bangalore</a></li>
-							<li><a href="#">Kolkata</a></li>
+							<li><span><b>Jobs By Company</b></span></li>
+							<li><a href="results.php?q=facebook">Facebook</a></li>
+							<li><a href="results.php?q=dell">Dell</a></li>
+							<li><a href="results.php?q=tata">Tata Steel</a></li>
+							<li><a href="results.php?q=sbi">SBI</a></li>
 						</div>
 						<div class="col-md-4 text-center job_cat">
 							<!-- Jobs By Skills -->
 							<li><span><b>Jobs By Skills</b></span></li>
-							<li><a href="#">Web Development</a></li>
-							<li><a href="#">Java</a></li>
-							<li><a href="#">ASP.NET</a></li>
-							<li><a href="#">SAP Jobs</a></li>		
+							<li><a href="results.php?q=html">Web Development</a></li>
+							<li><a href="results.php?q=catia">Catia</a></li>
+							<li><a href="results.php?q=ansys">Ansys</a></li>
+							<li><a href="results.php?q=python">Python</a></li>		
 						</div>
 					</div>
 				
