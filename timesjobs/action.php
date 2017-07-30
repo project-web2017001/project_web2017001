@@ -66,7 +66,7 @@
 				echo "
 					<div class='col-sm-6 col-md-4 job_thumbnail'>
 				    <div class='thumbnail job_thumbnail'>
-				      <img src='$logo' width='200px' height='200px'>
+				      <img src='$logo' width='200px' height='220px'>
 				      <div class='caption'>
 				        <h3>$title</h3>
 				        <div class='text-muted' style='display: inline-block;'>$company</div>
