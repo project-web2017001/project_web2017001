@@ -64,6 +64,11 @@ You can ofcourse make your own account by clicking on Sign up
 5) the alignment of the view in front end  (CHECKED)
 6)timesatmp is 0000000 every where,pls check to it (CHECKED)
 7) Stylize the footer everywhere and the href link functional (CHECKED)
+
+# UPDATE (30/07/17)
+1) Fixed the admin login problem
+2) Changed the UI
+3) Timestamp problem resolved
     
 ## Built with Bootstrap, Core PHP, custom CSS
 
